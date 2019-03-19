@@ -38,12 +38,15 @@ set -g prefix C-a
 # press ctrl+a twice to achieve the original functionality
 bind C-a send-prefix
 
+# new window
+bind c new-window -c "#{pane_current_path}"
+
 # reload tmux conf
 bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
  
 # split window
-bind | split-window -h
-bind - split-window -v
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
 # select pane
 bind h select-pane -L
