@@ -58,3 +58,29 @@ bind l select-pane -R
 set -g base-index 1
 set -g pane-base-index 1
 ```
+
+2. 常用 tmux 指令：
+```
+* 强制关闭当前窗口: prefix+&
+```
+
+## ffmpeg
+1. mp4->yuv
+```
+ffmpeg -i video.mp4 video.yuv
+```
+2. mp4->jpg
+ffmpeg -i video.mp4 frame/%04d.jpg
+
+3. jpg->mp4
+ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
+
+## python
+1. command shell
+```
+import subprocess
+command = 'ls'
+subprocess.call(command, shell=True)
+```
+
+
