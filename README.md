@@ -70,10 +70,14 @@ set -g pane-base-index 1
 ffmpeg -i video.mp4 video.yuv
 ```
 2. mp4->jpg
+```
 ffmpeg -i video.mp4 frame/%04d.jpg
+```
 
 3. jpg->mp4
+```
 ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
+```
 
 ## python
 1. command shell
