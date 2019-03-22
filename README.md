@@ -67,7 +67,7 @@ set -g pane-base-index 1
 ## ffmpeg
 1. mp4->yuv
 ```
-ffmpeg -i video.mp4 video.yuv
+ffmpeg -i video.mp4 -c:v rawvideo -pix_fmt yuv420p video.yuv
 ```
 2. mp4->jpg
 ```
