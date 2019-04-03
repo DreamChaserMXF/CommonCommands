@@ -79,6 +79,11 @@ ffmpeg -i video.mp4 frame/%04d.jpg
 ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
 ```
 
+4. bmp in 2 folders -> mp4 side by side
+```
+ffmpeg -i ./control_group/%04d.bmp -i ./experimental_group/%04d.bmp -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -vcodec libx264 -crf 23 -preset veryfast ./comparison.mp4
+```
+
 ## python
 1. command shell
 ```
@@ -87,4 +92,12 @@ command = 'ls'
 subprocess.call(command, shell=True)
 ```
 
+## git
+1. alias
+```
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+```
 
