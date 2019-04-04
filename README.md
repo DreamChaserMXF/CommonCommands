@@ -84,6 +84,11 @@ ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
 ffmpeg -i ./control_group/%04d.bmp -i ./experimental_group/%04d.bmp -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -vcodec libx264 -crf 23 -preset veryfast ./comparison.mp4
 ```
 
+5. rescale mp4
+```
+ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
+```
+
 ## python
 1. command shell
 ```
