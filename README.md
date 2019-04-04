@@ -18,6 +18,7 @@ set nu
 1. 批量文本字符串替换：sed -i 's/原字符串/新字符串/g' \*.txt
 2. 压缩包解压到指定文件夹（若无则创建）：tar -xzvf src.tar\[.gz\] -C dst_folder
 3. bash 遍历文件：for file in $(ls \*.txt); do echo$file; done
+4. 查看 alias 的实际命令：type \<command\>，如 type ls
 
 ## Visual Studio
 
