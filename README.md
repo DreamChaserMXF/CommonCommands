@@ -19,6 +19,7 @@ set nu
 2. 压缩包解压到指定文件夹（若无则创建）：tar -xzvf src.tar\[.gz\] -C dst_folder
 3. bash 遍历文件：for file in $(ls \*.txt); do echo$file; done
 4. 查看 alias 的实际命令：type \<command\>，如 type ls
+5. 多线程下载：axel -an 8 \<download_link\>
 
 ## Visual Studio
 
