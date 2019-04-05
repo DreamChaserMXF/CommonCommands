@@ -41,13 +41,14 @@ bind C-a send-prefix
 
 # new window
 bind c new-window -c "#{pane_current_path}"
-
-# reload tmux conf
-bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
  
 # split window
 bind | split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
+
+# swap window
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
 
 # select pane
 bind h select-pane -L
@@ -58,6 +59,9 @@ bind l select-pane -R
 # set start index of window and pane
 set -g base-index 1
 set -g pane-base-index 1
+
+# reload tmux conf
+bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
 ```
 
 2. 常用 tmux 指令：
