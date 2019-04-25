@@ -66,49 +66,55 @@ bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
 ```
 
 2. 常用 tmux 指令：
-```
-* 强制关闭当前窗口: prefix+&
-```
+    ```
+    * 强制关闭当前窗口: prefix+&
+    ```
 
 ## ffmpeg
 1. mp4->yuv
-```
-ffmpeg -i video.mp4 -c:v rawvideo -pix_fmt yuv420p video.yuv
-```
+    ```
+    ffmpeg -i video.mp4 -c:v rawvideo -pix_fmt yuv420p video.yuv
+    ```
+
+2. yuv->mp4
+    ```
+    ffmpeg -f rawvideo -vcodec rawvideo -s 1920x1080 -r 25 -pix_fmt yuv420p -i inputfile.yuv -c:v libx264 -preset ultrafast -qp 0 output.mp4
+    ```
+
 2. mp4->jpg
-```
-ffmpeg -i video.mp4 frame/%04d.jpg
-```
+    ```
+    ffmpeg -i video.mp4 frame/%04d.jpg
+    ```
 
 3. jpg->mp4
-```
-ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
-```
+    ```
+    ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
+    ```
 
 4. bmp in 2 folders -> mp4 side by side
-```
-ffmpeg -i ./control_group/%04d.bmp -i ./experimental_group/%04d.bmp -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -vcodec libx264 -crf 23 -preset veryfast ./comparison.mp4
-```
+    ```
+    ffmpeg -i ./control_group/%04d.bmp -i ./experimental_group/%04d.bmp -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -vcodec libx264 -crf 23 -preset veryfast ./comparison.mp4
+    ```
 
 5. rescale mp4
-```
-ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
-```
+    ```
+    ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
+    ```
 
 ## python
 1. command shell
-```
-import subprocess
-command = 'ls'
-subprocess.call(command, shell=True)
-```
+    ```
+    import subprocess
+    command = 'ls'
+    subprocess.call(command, shell=True)
+    ```
 
 ## git
 1. alias
-```
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.st status
-```
+    ```
+    git config --global alias.co checkout
+    git config --global alias.br branch
+    git config --global alias.ci commit
+    git config --global alias.st status
+    ```
 
