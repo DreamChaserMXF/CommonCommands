@@ -90,6 +90,8 @@ bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
     ```
     ffmpeg -i frame/%04d.jpg -vcodec libx264 video.mp4
     ```
+    如果找不到 libx264 编码器，可以用 apt 安装：
+    > sudo apt install libavcodec-extra
 
 4. bmp in 2 folders -> mp4 side by side
     ```
