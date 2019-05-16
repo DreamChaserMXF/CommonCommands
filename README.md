@@ -101,8 +101,13 @@ bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
 5. rescale mp4
     ```
     ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
+    ffmpeg -i origin.mp4 -vf scale=iw*.5:ih*.5 output.mp4
     ```
 
+6. make comparison video
+    ```
+    ffmpeg -i orig_video_frames\%04d.jpg -i cpp_rgb_result.mp4 -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -c:v libx264 -crf 10 -preset veryfast orig_dpe_comparison.mp4
+    ```
 ## python
 1. command shell
     ```
