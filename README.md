@@ -106,7 +106,7 @@ bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
 
 6. make comparison video
     ```
-    ffmpeg -i orig_video_frames\%04d.jpg -i cpp_rgb_result.mp4 -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -c:v libx264 -crf 10 -preset veryfast orig_dpe_comparison.mp4
+    ffmpeg -i clip2/%04d_rlt.png -i clip3/%04d.png -i clip4/%04d.png -filter_complex hstack=inputs=3 -crf 10 clip_2_3_4.mp4
     ```
 ## python
 1. command shell
