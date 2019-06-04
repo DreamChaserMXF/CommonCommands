@@ -32,40 +32,40 @@ set nu
 ## tmux
 
 1. 常用 tmux 快捷键配置
-```
-# replace prefix from b to a
-unbind C-b
-set -g prefix C-a
- 
-# press ctrl+a twice to achieve the original functionality
-bind C-a send-prefix
+    ```
+    # replace prefix from b to a
+    unbind C-b
+    set -g prefix C-a
 
-# new window
-bind c new-window -c "#{pane_current_path}"
- 
-# split window
-bind | split-window -h -c "#{pane_current_path}"
-bind - split-window -v -c "#{pane_current_path}"
+    # press ctrl+a twice to achieve the original functionality
+    bind C-a send-prefix
 
-# swap window
-bind-key -n C-S-Left swap-window -t -1
-bind-key -n C-S-Right swap-window -t +1
+    # new window
+    bind c new-window -c "#{pane_current_path}"
 
-# select pane
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
- 
-# set start index of window and pane
-set -g base-index 1
-set -g pane-base-index 1
+    # split window
+    bind | split-window -h -c "#{pane_current_path}"
+    bind - split-window -v -c "#{pane_current_path}"
 
-# reload tmux conf
-bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
-```
+    # swap window
+    bind-key -n C-S-Left swap-window -t -1
+    bind-key -n C-S-Right swap-window -t +1
 
-2. 常用 tmux 指令：
+    # select pane
+    bind h select-pane -L
+    bind j select-pane -D
+    bind k select-pane -U
+    bind l select-pane -R
+
+    # set start index of window and pane
+    set -g base-index 1
+    set -g pane-base-index 1
+
+    # reload tmux conf
+    bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
+    ```
+
+2. 常用 tmux 指令
     ```
     * 强制关闭当前窗口: prefix+&
     ```
@@ -107,6 +107,10 @@ bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
 6. make comparison video
     ```
     ffmpeg -i clip2/%04d_rlt.png -i clip3/%04d.png -i clip4/%04d.png -filter_complex hstack=inputs=3 -crf 10 clip_2_3_4.mp4
+    ```
+7. specify start image number and how many images do we use. In the following example, we use image/0250.png ~ image/0749.png to synthesize the yuv video
+    ```
+    ffmpeg -i image/%04d.png -c:v rawvideo -pix_fmt yuv420p -start_number 250 -frames:v 500 out_360x720.yuv
     ```
 ## python
 1. command shell
