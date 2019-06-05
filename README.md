@@ -102,6 +102,7 @@ set nu
     ```
     ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
     ffmpeg -i origin.mp4 -vf scale=iw*.5:ih*.5 output.mp4
+    ffmpeg -s:v 360:640 origin.yuv -vf scale=180:320 out.yuv
     ```
 
 6. make comparison video
