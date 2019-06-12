@@ -113,6 +113,11 @@ set nu
     ```
     ffmpeg -i image/%04d.png -c:v rawvideo -pix_fmt yuv420p -start_number 250 -frames:v 500 out_360x720.yuv
     ```
+8. check resolution and number of frames in all mp4s under the current directory
+    ```
+    for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames -of csv=s=x:p=0 "$f"; done
+    ```
+    
 ## python
 1. command shell
     ```
