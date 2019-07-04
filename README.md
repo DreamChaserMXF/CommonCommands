@@ -26,7 +26,8 @@ set nu
 1. 代码静态检查：[PVS-Studio](https://www.viva64.com/en/pvs-studio/)
 2. 内存泄漏动态检查：[Visual Leak Detector](https://kinddragon.github.io/vld/)
 3. 调试时输出指针 p 指向的前10个数组元素：监视窗口添加 b, 10
-4. Eigen 方便查看 Matrix Vector 元素：[Debug Eigen in Visual Studio](http://eigen.tuxfamily.org/index.php?title=Developer%27s_Corner#Debugging_under_Visual_Studio)
+4. 调试时查看 Eigen 的 Matrix/Vector 元素：[Debug Eigen in Visual Studio](http://eigen.tuxfamily.org/index.php?title=Developer%27s_Corner#Debugging_under_Visual_Studio)
+5. 调试时可以查看 OpenCV 的图像的插件：[Image Watch](https://docs.opencv.org/master/d4/d14/tutorial_windows_visual_studio_image_watch.html)
 5. 多处理器编译：项目->属性->C/C++->常规->多处理器编译：是
 
 ## tmux
