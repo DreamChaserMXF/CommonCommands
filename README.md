@@ -108,7 +108,7 @@ set nu
 
 6. make comparison video
     ```
-    ffmpeg -i clip2/%04d_rlt.png -i clip3/%04d.png -i clip4/%04d.png -filter_complex hstack=inputs=3 -crf 10 clip_2_3_4.mp4
+    ffmpeg -i clip2/%04d_rlt.png -i clip3/%04d.png -i clip4/%04d.png -filter_complex hstack=inputs=3 -vcodec libx264 -crf 10 clip_2_3_4.mp4
     ```
 7. specify start image number and how many images do we use. In the following example, we use image/0250.png ~ image/0749.png to synthesize the yuv video
     ```
