@@ -119,7 +119,13 @@ set nu
     ```
     for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames -of csv=s=x:p=0 "$f"; done
     ```
-    
+9. cut up video by start time and duration (-t) or end time (-to)
+    ```
+    ffmpeg -i input.wmv -ss 00:00:30.0 -c copy -t 00:00:10.0 output.wmv
+    ffmpeg -i input.wmv -ss 30 -c copy -t 10 output.wmv
+    ffmpeg -i input.wmv -ss 30 -c copy -to 40 output.wmv
+    ```
+
 ## python
 1. command shell
     ```
