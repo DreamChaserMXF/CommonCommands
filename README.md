@@ -125,6 +125,10 @@ set nu
     ffmpeg -i input.wmv -ss 30 -c copy -t 10 output.wmv
     ffmpeg -i input.wmv -ss 30 -c copy -to 40 output.wmv
     ```
+10. synthesis any images under a folder without monotonically increasing number as filenames
+    ```
+    ffmpeg -pattern_type glob -i 'certrain_folder/*.jpg' -c:v libx264 out.mp4
+    ```
 
 ## python
 1. command shell
