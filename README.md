@@ -12,6 +12,11 @@ set expandtab
 set nu
 ```
 4. Vim 把 tab 转为空格：retab
+5. Vim as HexEditor:
+   ```
+   :%!xxd
+   :%!xxd -r
+   ```
 
 ## Linux
 
