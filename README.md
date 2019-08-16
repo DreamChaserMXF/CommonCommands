@@ -25,6 +25,17 @@ set nu
 3. bash 遍历文件：for file in $(ls \*.txt); do echo$file; done
 4. 查看 alias 的实际命令：type \<command\>，如 type ls
 5. 多线程下载：axel -an 8 \<download_link\>
+6. 截取路径的文件名，及不带后缀的文件名：
+    ```
+    $ s=/the/path/foo.txt
+    $ echo ${s##*/}
+    foo.txt
+    $ s=${s##*/}
+    $ echo ${s%.txt}
+    foo
+    $ echo ${s%.*}
+    foo
+    ```
 
 ## Visual Studio
 
