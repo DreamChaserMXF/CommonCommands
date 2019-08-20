@@ -145,7 +145,10 @@ set nu
     ```
     ffmpeg -pattern_type glob -i 'certrain_folder/*.jpg' -c:v libx264 out.mp4
     ```
-
+11. use ffmpeg standard input/output pipe (do not use it on Windows comand line or PowerShell because their pipe mechanism are not the same with Linux)
+    ```
+    ffmpeg -i input.mp4 -f rawvideo -pix_fmt bgr24 - | ffmpeg -f rawvideo -pix_fmt bgr24 -s 480x640 -i - -c:v libx264 results.mp4
+    ```
 
 
 ## python
