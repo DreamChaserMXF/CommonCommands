@@ -100,7 +100,7 @@ set nu
 
 2. mp4->jpg
     ```
-    ffmpeg -i video.mp4 frame/%04d.jpg
+    ffmpeg -i video.mp4 -vsync 0 frame/%04d.jpg
     ```
 
 3. jpg->mp4
@@ -145,6 +145,8 @@ set nu
     ```
     ffmpeg -pattern_type glob -i 'certrain_folder/*.jpg' -c:v libx264 out.mp4
     ```
+
+
 
 ## python
 1. command shell
