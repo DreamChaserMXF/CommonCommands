@@ -136,7 +136,7 @@ set nu
     ```
 8. check resolution, frame number, bitrate in all mp4s under the current directory
     ```
-    for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames,duration,bit_rate -of csv=s=x:p=0 "$f"; done
+    for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames,duration,bit_rate,r_frame_rate -of csv=s=x:p=0 "$f"; done
     ```
     -of determines the output format.
     
