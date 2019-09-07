@@ -139,22 +139,25 @@ set nu
     for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames,duration,bit_rate,r_frame_rate -of csv=s=x:p=0 "$f"; done
     ```
     -of determines the output format.
-    
-9. cut up video by start time and duration (-t) or end time (-to)
+
+9. remove audio of a video
+   > ffmpeg -i in.mp4 -c:v copy -an out.mp4
+
+10. cut up video by start time and duration (-t) or end time (-to)
     ```
     ffmpeg -i input.wmv -ss 00:00:30.0 -c copy -t 00:00:10.0 output.wmv
     ffmpeg -i input.wmv -ss 30 -c copy -t 10 output.wmv
     ffmpeg -i input.wmv -ss 30 -c copy -to 40 output.wmv
     ```
-10. crop a video with x,y,w,h
+11. crop a video with x,y,w,h
    ```
    ffmpeg -i in.mp4 -c:v libx264 "crop=out_w:out_h:x:y" out.mp4
    ```
-11. synthesis any images under a folder without monotonically increasing number as filenames
+12. synthesis any images under a folder without monotonically increasing number as filenames
     ```
     ffmpeg -pattern_type glob -i 'certrain_folder/*.jpg' -c:v libx264 out.mp4
     ```
-12. use ffmpeg standard input/output pipe (do not use it on Windows comand line or PowerShell because their pipe mechanism are not the same with Linux)
+13. use ffmpeg standard input/output pipe (do not use it on Windows comand line or PowerShell because their pipe mechanism are not the same with Linux)
     ```
     ffmpeg -i input.mp4 -f rawvideo -pix_fmt bgr24 - | ffmpeg -f rawvideo -pix_fmt bgr24 -s 480x640 -i - -c:v libx264 results.mp4
     ```
