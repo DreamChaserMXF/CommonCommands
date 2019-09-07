@@ -102,9 +102,11 @@ set nu
     ```
     ffmpeg -i video.mp4 -vsync 0 -q:v 2 frame/%04d.jpg
     ffmpeg -i video.mp4 -vsync 0 frame/%04d.png
+    ffmpeg -i video.mp4 -vsync 0 -start_number 0 frame/%04d.png
     ```
-    q:v 2~5, 2 means best quality, 5 means smallest file size, only valid with jpeg images. png is lossless compression.      
-    \-vsync 0 means ffmpeg should extract every frame exactly. Either dropping or duplicating is forbidden.
+    q:v 2~5, 2 means best quality, 5 means smallest file size, only valid with jpeg images. png is lossless compression.  
+    \-vsync 0 means ffmpeg should extract every frame exactly. Either dropping or duplicating is forbidden.  
+    \-start_number 0 means output image index will start from 0000 rather than 0001
 
 3. jpg->mp4
     ```
