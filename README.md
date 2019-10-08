@@ -36,6 +36,11 @@ set nu
     $ echo ${s%.*}
     foo
     ```
+7. bash 将字符串作为命令执行([example](https://stackoverflow.com/a/2005201))
+    ```
+    s='ls'
+    eval $s
+    ```
 
 ## Visual Studio
 
