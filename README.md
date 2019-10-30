@@ -177,6 +177,21 @@ set nu
     command = 'ls'
     subprocess.call(command, shell=True)
     ```
+2. print directory tree
+    ```
+    from __future__ import print_function
+    import os.path
+    import fnmatch
+
+    for root, dir, files in os.walk("images"):
+        depth = root.count('/')
+        ret = ""
+        if depth > 0:
+            ret += "  " * (depth - 1) + "|-"
+        print (ret + root)
+        for items in fnmatch.filter(files, "*"):
+            print (" " * len(ret) + "|-" + items)
+    ```
 
 ## git
 1. alias
