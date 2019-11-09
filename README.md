@@ -90,6 +90,8 @@ set nu
 2. 常用 tmux 指令
     ```
     * 强制关闭当前窗口: prefix+&
+    * Session 改名：prefix+$
+    * Window 改名：prefix+,
     ```
 
 ## ffmpeg
