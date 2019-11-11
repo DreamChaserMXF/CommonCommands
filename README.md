@@ -170,6 +170,10 @@ set nu
     ```
     ffmpeg -i input.mp4 -f rawvideo -pix_fmt bgr24 - | ffmpeg -f rawvideo -pix_fmt bgr24 -s 480x640 -i - -c:v libx264 results.mp4
     ```
+14. use ffmpeg to rotate video (1=clockwise, 2=counter-clockwise)
+    ```
+    ffmpeg -i input.mp4 -c:v libx264 -crf 10 -vf "transpose=1" output.mp4
+    ```
 
 
 ## python
