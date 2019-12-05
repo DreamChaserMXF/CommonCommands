@@ -10,6 +10,11 @@ set autoindent
 set tabstop=4
 set expandtab
 set nu
+syntax on
+# jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 ```
 4. Vim 把 tab 转为空格：retab
 5. Vim as HexEditor:
