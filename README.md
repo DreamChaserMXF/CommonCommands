@@ -46,6 +46,7 @@ endif
     s='ls'
     eval $s
     ```
+8. history 显示执行时间：bashrc 中加入 export HISTTIMEFORMAT="%F %T " 即可
 
 ## Visual Studio
 
