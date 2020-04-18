@@ -204,7 +204,7 @@ endif
         for items in fnmatch.filter(files, "*"):
             print (" " * len(ret) + "|-" + items)
     ```
-3. control numpy float print format
+3. control [numpy float print format](https://stackoverflow.com/a/22223261/8795791)
     ```
     np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
     ```
