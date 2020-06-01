@@ -48,6 +48,12 @@ endif
     ```
 8. history 显示执行时间：bashrc 中加入 export HISTTIMEFORMAT="%F %T " 即可
 
+## macOS
+1. 安装任意来源的软件
+    ```
+    sudo spctl --master-disable
+    ```
+
 ## Visual Studio
 
 1. 代码静态检查：[PVS-Studio](https://www.viva64.com/en/pvs-studio/)
