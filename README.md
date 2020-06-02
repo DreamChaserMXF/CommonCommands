@@ -53,6 +53,7 @@ endif
     ```
     sudo spctl --master-disable
     ```
+    或者用 wget, curl 下载安装包，这样就不会被 macOS 检测到“downloaded from the internet”了
 
 ## Visual Studio
 
