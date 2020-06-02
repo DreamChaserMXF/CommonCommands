@@ -51,7 +51,8 @@ endif
 ## macOS
 1. 安装任意来源的软件
     ```
-    sudo spctl --master-disable
+    sudo spctl --master-disable  # 解除安装限制
+    sudo spctl --master-enable   # 恢复安装限制
     ```
     或者用 wget, curl 下载安装包，这样就不会被 macOS 检测到“downloaded from the internet”了
 
