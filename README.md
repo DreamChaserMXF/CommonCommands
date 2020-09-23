@@ -225,4 +225,8 @@ endif
     git config --global alias.ci commit
     git config --global alias.st status
     ```
+2. stage modified files only:
+    ```
+    git add -u
+    ```
 
