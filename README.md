@@ -229,4 +229,7 @@ endif
     ```
     git add -u
     ```
-
+3. check branch tracking info:
+    ```
+    git branch -vv
+    ```
