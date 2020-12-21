@@ -233,3 +233,7 @@ endif
     ```
     git branch -vv
     ```
+4. stage certain lines in a modified file
+    ```
+    git add -p file/you/want/to/stage
+    ```
