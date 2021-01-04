@@ -59,6 +59,12 @@ endif
     ```
     perl -i -pe's/原字符串/新字符串/g' *.txt
     ```
+3. Xcode 版本切换
+    ```
+    xcode-select -v  查看 xcode-select 版本
+    xcode-select -p  查看当前默认 Xcode 路径
+    xcode-select --switch /Applications/XcodeXX.X.app  切换默认 Xcode 路径
+    ```
 
 ## Visual Studio
 
