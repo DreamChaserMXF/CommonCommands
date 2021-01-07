@@ -47,6 +47,11 @@ endif
     eval $s
     ```
 8. history 显示执行时间：bashrc 中加入 export HISTTIMEFORMAT="%F %T " 即可
+9. 在某个目录下的所有文本文件中搜索指定字符串：
+    ```
+    grep "str" path/to/directory -Irin
+    ```
+    I 表示仅在文本文件中搜索，r 表示 recursive，i 表示 case insensitive，n 表示搜索结果显示被搜到的结果在文件中的行号。
 
 ## macOS
 1. 安装任意来源的软件
