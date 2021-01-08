@@ -52,6 +52,10 @@ endif
     grep "str" path/to/directory -Irin
     ```
     I 表示仅在文本文件中搜索，r 表示 recursive，i 表示 case insensitive，n 表示搜索结果显示被搜到的结果在文件中的行号。
+10. 命令失败后立即退出 bash 脚本：
+  ```
+  set -e
+  ```
 
 ## macOS
 1. 安装任意来源的软件
