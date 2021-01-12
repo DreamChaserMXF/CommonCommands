@@ -244,6 +244,14 @@ endif
     git config --global alias.ci commit
     git config --global alias.st status
     ```
+    ```
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    stu = status -uno
+    logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ```
 2. stage modified files only:
     ```
     git add -u
