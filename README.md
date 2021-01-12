@@ -256,3 +256,12 @@ endif
     ```
     git add -p file/you/want/to/stage
     ```
+5. show corresponding branch at remote
+    ```
+    git branch -vv
+    ```
+6. show modification history of a deleted file ([SO link](https://stackoverflow.com/a/7203551/8795791)):
+  ```
+  git log --all --full-history -- <path-to-file>
+  git log --all --full-history -- "**/thefile.*"
+  ```
