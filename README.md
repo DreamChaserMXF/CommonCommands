@@ -22,6 +22,11 @@ endif
    :%!xxd
    :%!xxd -r
    ```
+6. case insensitive search
+  ```
+  /word\c   # case insensitive
+  /word\C   # case sensitive
+  ```
 
 ## Linux
 
