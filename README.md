@@ -69,9 +69,11 @@ endif
     sudo spctl --master-enable   # 恢复安装限制
     ```
     或者用 wget, curl 下载安装包，这样就不会被 macOS 检测到“downloaded from the internet”了
-2. 批量文本字符串替换（sed 在 MacOS 下不好用）：
+2. 批量文本字符串替换（sed 在 MacOS 下不太好用）：
     ```
+    sed -i -e 's/原字符串/新字符串/g' *.txt  # sed 在 MacOS 下要加 -e，或 ''，如 sed -i '' 's/原字符串/新字符串/g' *.txt
     perl -i -pe's/原字符串/新字符串/g' *.txt
+    grep -rli 'old-word' * | xargs -I@ sed -i '' 's/old-word/new-word/g' @
     ```
 3. Xcode 版本切换
     ```
