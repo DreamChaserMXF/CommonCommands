@@ -81,6 +81,15 @@ endif
     xcode-select -p  查看当前默认 Xcode 路径
     xcode-select --switch /Applications/XcodeXX.X.app  切换默认 Xcode 路径
     ```
+4. 安装 brew
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+5. brew 安装指定版本的软件
+    ```
+    brew install cmake@3.18
+    refer to https://stackoverflow.com/a/4158763/8795791
+    ```
 
 ## Visual Studio
 
@@ -276,7 +285,7 @@ endif
     git branch -vv
     ```
 6. show modification history of a deleted file ([SO link](https://stackoverflow.com/a/7203551/8795791)):
-  ```
-  git log --all --full-history -- <path-to-file>
-  git log --all --full-history -- "**/thefile.*"
-  ```
+    ```
+    git log --all --full-history -- <path-to-file>
+    git log --all --full-history -- "**/thefile.*"
+    ```
