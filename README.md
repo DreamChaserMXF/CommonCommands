@@ -262,7 +262,7 @@ endif
     ```
     ```
     # .gitconfig
-[alias]
+    [alias]
     co = checkout
     br = branch
     ci = commit
@@ -291,4 +291,8 @@ endif
     ```
     git log --all --full-history -- <path-to-file>
     git log --all --full-history -- "**/thefile.*"
+    ```
+7. remember password
+    ```
+    git config --global credential.helper store
     ```
