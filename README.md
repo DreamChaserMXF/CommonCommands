@@ -54,9 +54,13 @@ endif
 8. history 显示执行时间：bashrc 中加入 export HISTTIMEFORMAT="%F %T " 即可
 9. 在某个目录下的所有文本文件中搜索指定字符串：
     ```
-    grep "str" path/to/directory -Irin
+    grep "str" path/to/directory -rinI
     ```
-    I 表示仅在文本文件中搜索，r 表示 recursive，i 表示 case insensitive，n 表示搜索结果显示被搜到的结果在文件中的行号。
+    r 表示 recursive，i 表示 case insensitive，n 表示搜索结果显示被搜到的结果在文件中的行号，I 表示仅在文本文件中搜索。
+    ```
+    grep -v "str" pat
+    ```
+    -v 表示 invert-match，反向匹配，只过滤未出现 “str” 的行。
 10. 命令失败后立即退出 bash 脚本：
   ```
   set -e
