@@ -300,3 +300,14 @@ endif
     ```
     git config --global credential.helper store
     ```
+
+## adb
+
+1. list installed package
+    ```
+    adb shell pm list packages -f
+    ```
+2. check SELinux's status
+    ```
+    adb shell getenforce  # Enforcing, Permissive，前者强制打开 SELinux 检查，后者仅记录违规行为不会禁止
+    ```
