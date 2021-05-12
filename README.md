@@ -256,6 +256,24 @@ endif
     np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
     ```
 
+## conda
+1. create environment
+    ```
+    conda create -n <env_name> python=<python_version>
+    ```
+2. remove environment
+    ```
+    conda env remove -n <env_name>
+    ```
+3. search package
+    ```
+    conda serach <package_name>
+    ```
+4. list packages
+    ```
+    conda list
+    ```
+
 ## git
 1. alias
     ```
