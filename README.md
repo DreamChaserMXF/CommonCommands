@@ -256,6 +256,14 @@ endif
     np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
     ```
 
+4. enter interactive mode
+    ```
+    import code
+    
+    ...
+    
+    code.interact(local=locals())
+    ```
 ## conda
 1. create environment
     ```
