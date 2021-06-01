@@ -264,6 +264,14 @@ endif
     
     code.interact(local=locals())
     ```
+5. use conda environments in jupyter notebook
+    ```
+    https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084
+    conda install -c anaconda ipykernel
+    python -m ipykernel install --user --name=<env_name>
+    ```
+
+
 ## conda
 1. create environment
     ```
