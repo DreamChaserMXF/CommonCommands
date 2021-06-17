@@ -62,10 +62,26 @@ endif
     ```
     -v 表示 invert-match，反向匹配，只过滤未出现 “str” 的行。
 10. 命令失败后立即退出 bash 脚本：
-  ```
-  set -e
-  ```
-
+    ```
+    set -e
+    ```
+11. 打印脚本执行的每行命令
+    ```
+    set -x
+    ```
+12. 文本行逆序
+    ```
+    cat file1.txt | tail -r > file2.txt
+    ```
+    或
+    ```
+    tac file1.txt > file2.txt
+    ```
+14. 字符串数组逆序
+    ```
+    echo "aaaa eeee bbbb ffff cccc"|tr ' ' '\n'|tac|tr '\n' ' '
+    echo $str|tr ' ' '\n'|tac|tr '\n' ' '
+    ```
 ## macOS
 1. 安装任意来源的软件
     ```
