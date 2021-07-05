@@ -120,6 +120,14 @@ endif
 5. 调试时查看 OpenCV 的图像的插件：[Image Watch](https://docs.opencv.org/master/d4/d14/tutorial_windows_visual_studio_image_watch.html)
 5. 多处理器编译：项目->属性->C/C++->常规->多处理器编译：是
 
+## Xcode
+1. debug, view pointer as array
+    ```
+    (float(*)[16])data
+    or
+    memory read -t int -c8 `array_name`  // https://stackoverflow.com/a/23401104/8795791
+    ```
+
 ## tmux
 
 1. 常用 tmux 快捷键配置
@@ -162,6 +170,7 @@ endif
     * Session 改名：prefix+$
     * Window 改名：prefix+,
     ```
+
 
 ## ffmpeg
 1. mp4->yuv
