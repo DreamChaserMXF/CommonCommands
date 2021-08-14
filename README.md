@@ -252,6 +252,18 @@ endif
     ```
     ffmpeg -i input.mp4 -c:v libx264 -crf 10 -vf "transpose=1" output.mp4
     ```
+15. hide ffmpeg/ffprobe/ffplay info
+    ```
+    ffmpeg/ffprobe/ffplay -hide_banner
+    ```
+17. play video
+    ```
+    ffplay -hide_banner xxx.mp4
+    ```
+19. show video infomation
+    ```
+    ffprobe -hide_banner xxx.mp4
+    ```
 
 
 ## python
