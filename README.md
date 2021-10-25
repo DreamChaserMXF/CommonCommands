@@ -371,6 +371,15 @@ endif
     ```
     git config --global credential.helper store
     ```
+8. check log for a file in all branches
+    ```
+    git log --all --full-history -- path/to/the/file
+    ```
+9. check log for any string in all branches
+    ```
+    git log -S "whatever" --source --all
+    ```
+    reference: https://stackoverflow.com/a/5816177/8795791
 
 ## adb
 
