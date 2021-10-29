@@ -380,6 +380,11 @@ endif
     git log -S "whatever" --source --all
     ```
     reference: https://stackoverflow.com/a/5816177/8795791
+10. Listing git branches containing the given commit
+    ```
+    git branch -a --contains <commit>/<tag>
+    ```
+  reference: https://www.w3docs.com/snippets/git/listing-branches-that-contain-a-given-commit.html
 
 ## adb
 
