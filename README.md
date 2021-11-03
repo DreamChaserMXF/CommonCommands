@@ -82,6 +82,11 @@ endif
     echo "aaaa eeee bbbb ffff cccc"|tr ' ' '\n'|tac|tr '\n' ' '
     echo $str|tr ' ' '\n'|tac|tr '\n' ' '
     ```
+15. 忽略大小写的文件查找
+    ```
+    find . -iname "xxx.*"
+    ```
+
 ## macOS
 1. 安装任意来源的软件
     ```
