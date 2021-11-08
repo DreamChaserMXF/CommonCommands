@@ -389,7 +389,13 @@ endif
     ```
     git branch -a --contains <commit>/<tag>
     ```
-  reference: https://www.w3docs.com/snippets/git/listing-branches-that-contain-a-given-commit.html
+    reference: https://www.w3docs.com/snippets/git/listing-branches-that-contain-a-given-commit.html
+11. find the most recent common ancestor of two branches
+    ```
+    git merge-base branch2 branch3
+    ```
+    reference: https://stackoverflow.com/a/1549155/8795791
+
 
 ## adb
 
