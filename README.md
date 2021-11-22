@@ -346,9 +346,11 @@ endif
     co = checkout
     br = branch
     ci = commit
+    ca = commit --amend
+    can = commit --amend --no-edit
+    cp = cherry-pick
     st = status
     stu = status -uno
-    cp = cherry-pick
     logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     ```
 2. stage modified files only:
