@@ -23,10 +23,19 @@ endif
    :%!xxd -r
    ```
 6. case insensitive search
-  ```
-  /word\c   # case insensitive
-  /word\C   # case sensitive
-  ```
+    ```
+    /word\c   # case insensitive
+    /word\C   # case sensitive
+    ```
+7. Count number of matches of a pattern
+    ```
+    :%s/pattern//gn
+    ```
+    Omit g to display the number of lines where the pattern matches
+    ```
+    :%s/pattern//n
+    ```
+    refer to https://vim.fandom.com/wiki/Count_number_of_matches_of_a_pattern
 
 ## Linux
 
