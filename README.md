@@ -396,7 +396,11 @@ endif
     git log -S "whatever" --source --all
     ```
     reference: https://stackoverflow.com/a/5816177/8795791
-10. Listing git branches containing the given commit
+10. check log for certain lines of a file
+    ```
+    git log -L155,160:file/you/are/interested
+    ```
+12. Listing git branches containing the given commit
     ```
     git branch -a --contains <commit>/<tag>
     ```
