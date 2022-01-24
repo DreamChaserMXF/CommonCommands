@@ -410,7 +410,11 @@ endif
     git merge-base branch2 branch3
     ```
     reference: https://stackoverflow.com/a/1549155/8795791
-
+12. check file content in another branch
+    ```
+    git show branch:file
+    ```
+    reference: https://stackoverflow.com/questions/7856416/view-a-file-in-a-different-git-branch-without-changing-branches
 
 ## adb
 
