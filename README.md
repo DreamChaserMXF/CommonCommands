@@ -415,6 +415,11 @@ endif
     git show branch:file
     ```
     reference: https://stackoverflow.com/questions/7856416/view-a-file-in-a-different-git-branch-without-changing-branches
+13. list lfs tracked file
+    ```
+    git lfs ls-files
+    git lfs ls-files --all  # https://stackoverflow.com/questions/46155906/git-lfs-get-the-complete-list-from-the-whole-repository
+    ```
 
 ## adb
 
