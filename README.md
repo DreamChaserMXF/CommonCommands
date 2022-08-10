@@ -340,6 +340,7 @@ endif
     ```
     https://stackoverflow.com/a/61355987/8795791
     conda create --name new_name --copy --clone old_name
+    conda env remove --name old_name
     ```
 5. search package
     ```
