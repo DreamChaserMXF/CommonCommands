@@ -336,7 +336,12 @@ endif
     ```
     conda env remove -n <env_name>
     ```
-3. search package
+3. rename environment
+    ```
+    https://stackoverflow.com/a/61355987/8795791
+    conda create --name new_name --copy --clone old_name
+    ```
+5. search package
     ```
     conda serach <package_name>
     ```
