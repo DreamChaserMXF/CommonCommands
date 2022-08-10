@@ -431,3 +431,10 @@ endif
     ```
     adb shell getenforce  # Enforcing, Permissive，前者强制打开 SELinux 检查，后者仅记录违规行为不会禁止
     ```
+
+## python
+1. http server
+    ```
+    python3 -m http.server [port_number]
+    python2 -m SimpleHTTPServer [port_number]
+    ```
