@@ -321,7 +321,11 @@ endif
     conda install -c anaconda ipykernel
     python -m ipykernel install --user --name=<env_name>
     ```
-
+6. http server
+    ```
+    python3 -m http.server [port_number]
+    python2 -m SimpleHTTPServer [port_number]
+    ```
 
 ## conda
 1. create environment
@@ -430,11 +434,4 @@ endif
 2. check SELinux's status
     ```
     adb shell getenforce  # Enforcing, Permissive，前者强制打开 SELinux 检查，后者仅记录违规行为不会禁止
-    ```
-
-## python
-1. http server
-    ```
-    python3 -m http.server [port_number]
-    python2 -m SimpleHTTPServer [port_number]
     ```
