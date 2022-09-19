@@ -430,7 +430,11 @@ endif
     git lfs ls-files
     git lfs ls-files --all  # https://stackoverflow.com/questions/46155906/git-lfs-get-the-complete-list-from-the-whole-repository
     ```
-
+14. remove all untracked files and folders
+    ```
+    git clean -dfx
+    git submodule foreach git clean -dxf  # for submodules
+    ```
 ## adb
 
 1. list installed package
