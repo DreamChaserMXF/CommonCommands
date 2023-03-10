@@ -174,6 +174,9 @@ endif
     set -g base-index 1
     set -g pane-base-index 1
 
+    # enable pane selection by mouse
+    set -g mouse on 
+    
     # reload tmux conf
     bind r source-file ~/.tmux.conf \; display "tmux.conf reload!"
     ```
@@ -183,6 +186,13 @@ endif
     * 强制关闭当前窗口: prefix+&
     * Session 改名：prefix+$
     * Window 改名：prefix+,
+    * Session detach: prefix+d
+    * Session attach: tmux a -t <session_name>
+    ```
+
+3. 参考链接
+    ```
+    [tmux常用命令及快捷方式](https://zhuanlan.zhihu.com/p/90464490)
     ```
 
 
