@@ -237,9 +237,12 @@ endif
     ffmpeg -s:v 360:640 origin.yuv -vf scale=180:320 out.yuv
     ```
 
-6. make comparison video
+6. make comparison video / stitching videos
     ```
     ffmpeg -i clip2/%04d_rlt.png -i clip3/%04d.png -i clip4/%04d.png -filter_complex hstack=inputs=3 -vcodec libx264 -crf 10 clip_2_3_4.mp4
+    ffmpeg -i top_left.mp4 -i top_right.mp4 -i bottom_left.mp4 -i bottom_right.mp4 \ 
+       -lavfi "[0:v][1:v]hstack[top];[2:v][3:v]hstack[bottom];[top][bottom]vstack" \
+       -shortest 2by2grid.mp4  # https://github.com/stoyanovgeorge/ffmpeg/wiki/How-to-Stitch-Videos-Together
     ```
 7. specify start image number and how many images do we use. In the following example, we use image/0250.png ~ image/0749.png to synthesize the yuv video
     ```
@@ -287,6 +290,17 @@ endif
 19. show video infomation
     ```
     ffprobe -hide_banner xxx.mp4
+    ```
+20. concat multiple videos
+    ```
+    # https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg
+    # https://ffmpeg.org/ffmpeg-formats.html#concat
+    $ cat mylist.txt
+    file '/path/to/file1'
+    file '/path/to/file2'
+    file '/path/to/file3'
+    
+    $ ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.mp4
     ```
 
 
