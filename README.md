@@ -302,7 +302,11 @@ endif
     
     $ ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.mp4
     ```
-
+21. extract keyframes only
+    ```
+    ffmpeg -skip_frame nokey -i test.mp4 -vsync vfr -frame_pts true out-%02d.jpeg
+    # https://jdhao.github.io/2021/12/25/ffmpeg-extract-key-frame-video/#:~:text=So%20we%20can%20extract%20I-frames%20only%20to%20get,true%20out-%2502d.jpeg%20-vsync%20vfr%3A%20discard%20the%20unused%20frames
+    ```
 
 ## python
 1. command shell
