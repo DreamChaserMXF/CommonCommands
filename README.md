@@ -412,9 +412,9 @@ endif
     ```
     git add -p file/you/want/to/stage
     ```
-5. show corresponding branch at remote
+5. modify remote url (change from ssh to https)
     ```
-    git branch -vv
+    git remote set-url origin https://...
     ```
 6. show modification history of a deleted file ([SO link](https://stackoverflow.com/a/7203551/8795791)):
     ```
