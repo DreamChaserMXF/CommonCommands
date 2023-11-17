@@ -338,7 +338,17 @@ endif
 
     # ffmpeg -f concat -i filelist.txt output_concat_filelist.mp4
     ```
-22. extract keyframes only
+22. concat images and videos simultaneously
+    ```
+    ffmpeg \
+    -loop 1 -framerate 24 -t 10 -i image1.jpg \
+    -i video.mp4 \
+    -loop 1 -framerate 24 -t 10 -i image2.jpg \
+    -loop 1 -framerate 24 -t 10 -i image3.jpg \
+    -filter_complex "[0][1][2][3]concat=n=4:v=1:a=0" out.mp4
+    # https://stackoverflow.com/a/43958846
+    ```
+23. extract keyframes only
     ```
     ffmpeg -skip_frame nokey -i test.mp4 -vsync vfr -frame_pts true out-%02d.jpeg
     # https://jdhao.github.io/2021/12/25/ffmpeg-extract-key-frame-video/#:~:text=So%20we%20can%20extract%20I-frames%20only%20to%20get,true%20out-%2502d.jpeg%20-vsync%20vfr%3A%20discard%20the%20unused%20frames
