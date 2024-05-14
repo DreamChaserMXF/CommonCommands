@@ -353,6 +353,18 @@ endif
     ffmpeg -skip_frame nokey -i test.mp4 -vsync vfr -frame_pts true out-%02d.jpeg
     # https://jdhao.github.io/2021/12/25/ffmpeg-extract-key-frame-video/#:~:text=So%20we%20can%20extract%20I-frames%20only%20to%20get,true%20out-%2502d.jpeg%20-vsync%20vfr%3A%20discard%20the%20unused%20frames
     ```
+24. speed up or slow down the video
+    ```
+    # speed up by dropping some frames
+    ffmpeg -i input.mp4 -vf "setpts=0.5*PTS" output.mp4
+    # speed up by increasing framerate
+    ffmpeg -i input.mp4 -r 60 -vf "setpts=0.5*PTS" output.mp4
+    # slow down video with same framerate
+    ffmpeg -i input.mp4 -vf "setpts=2*PTS" output.mp4
+    # slow down video with frame interpolation
+    ffmpeg -i input.mp4 -vf "setpts=2*PTS,minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=60'" output.mp4
+    # refer to https://creatomate.com/blog/how-to-speed-up-or-slow-down-video-playback-using-ffmpeg
+    ```
 
 ## python
 1. command shell
