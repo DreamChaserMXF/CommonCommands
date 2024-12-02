@@ -189,6 +189,7 @@ endif
     * Session detach: prefix+d
     * Session attach: tmux a -t <session_name>
     * Session 切换: prefix+s
+    * tmux 内部的复制粘贴：prefix+[ 进入复制模式，鼠标选择，或者用空格开始选择，vim 中的光标移动键来移动选择框，Enter键结束选择。prefix+] 进行粘贴。
     ```
 
 3. 参考链接
