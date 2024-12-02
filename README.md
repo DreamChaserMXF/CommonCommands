@@ -144,7 +144,7 @@ endif
 
 ## tmux
 
-1. 常用 tmux 快捷键配置
+1. 常用 tmux 快捷键配置（放在~/.tmux.conf下）
     ```
     # replace prefix from b to a
     unbind C-b
@@ -188,6 +188,7 @@ endif
     * Window 改名：prefix+,
     * Session detach: prefix+d
     * Session attach: tmux a -t <session_name>
+    * Session 切换: prefix+s
     ```
 
 3. 参考链接
