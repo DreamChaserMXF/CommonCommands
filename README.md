@@ -367,6 +367,12 @@ endif
     ffmpeg -i input.mp4 -vf "setpts=2*PTS,minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=60'" output.mp4
     # refer to https://creatomate.com/blog/how-to-speed-up-or-slow-down-video-playback-using-ffmpeg
     ```
+25. fade in, fade out 淡入淡出
+    ```
+    ffmpeg -vsync 0 -i input.mp4 -vf "fade=t=in:st=0:d=2, fade=t=out:st=14:d=2" output.mp4
+    t=in for fade in, t=out for fade out
+    st specifies the starting time in second, d specify the duration of fading in or fading out.
+    ```
 
 ## python
 1. command shell
