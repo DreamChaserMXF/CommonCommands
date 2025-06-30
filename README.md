@@ -373,6 +373,10 @@ endif
     t=in for fade in, t=out for fade out
     st specifies the starting time in second, d specify the duration of fading in or fading out.
     ```
+26. 插帧，用于不改变视频内容和时长的情况下，调整帧率与帧数
+    ```
+    ffmpeg -i input.mov -filter:v "minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:fps=24'" output-24fps.mp4
+    ```
 
 ## python
 1. command shell
