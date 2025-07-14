@@ -261,9 +261,9 @@ endif
 
 10. cut up video by start time and duration (-t) or end time (-to)
     ```
-    ffmpeg -i input.wmv -ss 00:00:30.0 -c copy -t 00:00:10.0 output.wmv
-    ffmpeg -i input.wmv -ss 30 -c copy -t 10 output.wmv
-    ffmpeg -i input.wmv -ss 30 -c copy -to 40 output.wmv
+    ffmpeg -ss 00:00:30.0 -t 00:00:10.0 -i input.wmv -c copy output.wmv
+    ffmpeg -ss 30 -t 10 -i input.wmv -c copy output.wmv
+    ffmpeg -ss 30 -to 40 -i input.wmv -c copy output.wmv
     ```
 11. crop a video with x,y,w,h
    ```
