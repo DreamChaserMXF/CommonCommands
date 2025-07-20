@@ -226,74 +226,80 @@ endif
     如果找不到 libx264 编码器，可以用 apt 安装：
     > sudo apt install libavcodec-extra
 
-4. bmp in 2 folders -> mp4 side by side
+4. synthesis any images under a folder without monotonically increasing number as filenames
     ```
-    ffmpeg -i ./control_group/%04d.bmp -i ./experimental_group/%04d.bmp -filter_complex '[0:v]pad=iw*2:ih[int];[int][1:v]overlay=W/2:0[vid]' -map [vid] -vcodec libx264 -crf 23 -preset veryfast ./comparison.mp4
+    ffmpeg -pattern_type glob -i 'certrain_folder/*.jpg' -c:v libx264 out.mp4
     ```
 
-5. rescale mp4
+5. specify start image number and how many images do we use. In the following example, we use image/0250.png ~ image/0749.png to synthesize the yuv video
+    ```
+    ffmpeg -i image/%04d.png -c:v rawvideo -pix_fmt yuv420p -start_number 250 -frames:v 500 out_360x720.yuv
+    ```
+
+6. check resolution, frame number, bitrate in all mp4s under the current directory
+    ```
+    for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames,duration,bit_rate,r_frame_rate -of csv=s=x:p=0 "$f"; done
+    ```
+    -of determines the output format.
+
+7. rescale mp4
     ```
     ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
     ffmpeg -i origin.mp4 -vf scale=iw*.5:ih*.5 output.mp4
     ffmpeg -i origin.mp4 -vf scale=iw*.5:ih*.5:flags=bicubic output.mp4  # bicubic scaling
     ffmpeg -s:v 360:640 origin.yuv -vf scale=180:320 out.yuv
     ```
+  
+8. crop a video with x,y,w,h
+   ```
+   ffmpeg -i in.mp4 -c:v libx264 "crop=out_w:out_h:x:y" out.mp4
+   ```
 
-6. make comparison video / stitching videos
+9. cut up video by start time and duration (-t) or end time (-to)
+    ```
+    ffmpeg -ss 00:00:30.0 -t 00:00:10.0 -i input.wmv -c copy output.wmv
+    ffmpeg -ss 30 -t 10 -i input.wmv -c copy output.wmv
+    ffmpeg -ss 30 -to 40 -i input.wmv -c copy output.wmv
+    ```
+
+10. make comparison video / stitching videos
     ```
     ffmpeg -i clip2/%04d_rlt.png -i clip3/%04d.png -i clip4/%04d.png -filter_complex hstack=inputs=3 -vcodec libx264 -crf 10 clip_2_3_4.mp4
     ffmpeg -i top_left.mp4 -i top_right.mp4 -i bottom_left.mp4 -i bottom_right.mp4 \ 
        -lavfi "[0:v][1:v]hstack[top];[2:v][3:v]hstack[bottom];[top][bottom]vstack" \
        -shortest 2by2grid.mp4  # https://github.com/stoyanovgeorge/ffmpeg/wiki/How-to-Stitch-Videos-Together
     ```
-7. specify start image number and how many images do we use. In the following example, we use image/0250.png ~ image/0749.png to synthesize the yuv video
-    ```
-    ffmpeg -i image/%04d.png -c:v rawvideo -pix_fmt yuv420p -start_number 250 -frames:v 500 out_360x720.yuv
-    ```
-8. check resolution, frame number, bitrate in all mp4s under the current directory
-    ```
-    for f in *.mp4; do ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames,duration,bit_rate,r_frame_rate -of csv=s=x:p=0 "$f"; done
-    ```
-    -of determines the output format.
 
-9. remove audio of a video
+11. remove audio of a video
    > ffmpeg -i in.mp4 -c:v copy -an out.mp4
 
-10. cut up video by start time and duration (-t) or end time (-to)
-    ```
-    ffmpeg -ss 00:00:30.0 -t 00:00:10.0 -i input.wmv -c copy output.wmv
-    ffmpeg -ss 30 -t 10 -i input.wmv -c copy output.wmv
-    ffmpeg -ss 30 -to 40 -i input.wmv -c copy output.wmv
-    ```
-11. crop a video with x,y,w,h
-   ```
-   ffmpeg -i in.mp4 -c:v libx264 "crop=out_w:out_h:x:y" out.mp4
-   ```
-12. synthesis any images under a folder without monotonically increasing number as filenames
-    ```
-    ffmpeg -pattern_type glob -i 'certrain_folder/*.jpg' -c:v libx264 out.mp4
-    ```
-13. use ffmpeg standard input/output pipe (do not use it on Windows comand line or PowerShell because their pipe mechanism are not the same with Linux)
+
+12. use ffmpeg standard input/output pipe (do not use it on Windows comand line or PowerShell because their pipe mechanism are not the same with Linux)
     ```
     ffmpeg -i input.mp4 -f rawvideo -pix_fmt bgr24 - | ffmpeg -f rawvideo -pix_fmt bgr24 -s 480x640 -i - -c:v libx264 results.mp4
     ```
-14. use ffmpeg to rotate video (1=clockwise, 2=counter-clockwise)
+    
+13. use ffmpeg to rotate video (1=clockwise, 2=counter-clockwise)
     ```
     ffmpeg -i input.mp4 -c:v libx264 -crf 10 -vf "transpose=1" output.mp4
     ```
-15. hide ffmpeg/ffprobe/ffplay info
+
+14. hide ffmpeg/ffprobe/ffplay info
     ```
     ffmpeg/ffprobe/ffplay -hide_banner
     ```
-17. play video
+
+15. play video
     ```
     ffplay -hide_banner xxx.mp4
     ```
-19. show video infomation
+
+16. show video infomation
     ```
     ffprobe -hide_banner xxx.mp4
     ```
-20. concat multiple videos
+
+17. concat multiple videos
     ```
     # https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg
     # https://ffmpeg.org/ffmpeg-formats.html#concat
@@ -304,7 +310,8 @@ endif
     
     $ ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.mp4
     ```
-21. concat multiple images with specific duration
+
+18. concat multiple images with specific duration
     ```
     # https://stackoverflow.com/a/76990338/8795791
     # duration <seconds>
@@ -340,7 +347,7 @@ endif
 
     # ffmpeg -f concat -i filelist.txt output_concat_filelist.mp4
     ```
-22. concat images and videos simultaneously
+19. concat images and videos simultaneously
     ```
     ffmpeg \
     -loop 1 -framerate 24 -t 10 -i image1.jpg \
@@ -350,12 +357,14 @@ endif
     -filter_complex "[0][1][2][3]concat=n=4:v=1:a=0" out.mp4
     # https://stackoverflow.com/a/43958846
     ```
-23. extract keyframes only
+
+20. extract keyframes only
     ```
     ffmpeg -skip_frame nokey -i test.mp4 -vsync vfr -frame_pts true out-%02d.jpeg
     # https://jdhao.github.io/2021/12/25/ffmpeg-extract-key-frame-video/#:~:text=So%20we%20can%20extract%20I-frames%20only%20to%20get,true%20out-%2502d.jpeg%20-vsync%20vfr%3A%20discard%20the%20unused%20frames
     ```
-24. speed up or slow down the video
+  
+21. speed up or slow down the video
     ```
     # speed up by dropping some frames
     ffmpeg -i input.mp4 -vf "setpts=0.5*PTS" output.mp4
@@ -363,19 +372,31 @@ endif
     ffmpeg -i input.mp4 -r 60 -vf "setpts=0.5*PTS" output.mp4
     # slow down video with same framerate
     ffmpeg -i input.mp4 -vf "setpts=2*PTS" output.mp4
-    # slow down video with frame interpolation
-    ffmpeg -i input.mp4 -vf "setpts=2*PTS,minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=60'" output.mp4
+    # slow down video with frame interpolation, 
+    ffmpeg -i input.mp4 -vf "setpts=2*PTS,minterpolate='mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=60'" output.mp4        # specify fps and PTS (PTS determines the speed, fps determines the frame number)
+    ffmpeg -i input.mov -filter:v "minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:fps=24'" output-24fps.mp4   # specify fps only (frame number not change, only change PTS)
     # refer to https://creatomate.com/blog/how-to-speed-up-or-slow-down-video-playback-using-ffmpeg
     ```
-25. fade in, fade out 淡入淡出
+
+22. fade in, fade out 淡入淡出
     ```
     ffmpeg -vsync 0 -i input.mp4 -vf "fade=t=in:st=0:d=2, fade=t=out:st=14:d=2" output.mp4
     t=in for fade in, t=out for fade out
     st specifies the starting time in second, d specify the duration of fading in or fading out.
     ```
-26. 插帧，用于不改变视频内容和时长的情况下，调整帧率与帧数
+
+23. blur one or more specific rectangle
     ```
-    ffmpeg -i input.mov -filter:v "minterpolate='mi_mode=mci:mc_mode=aobmc:me_mode=bidir:fps=24'" output-24fps.mp4
+    ffmpeg -i input.mp4 -filter_complex \
+    "split=3[bg][area1][area2]; \
+    [area1]crop=宽度:高度:起点X坐标:起点Y坐标,boxblur=强度值[blur1]; \
+    [area2]crop=150:200:400:300,boxblur=12[blur2]; \
+    [bg][blur1]overlay=50:50[tmp]; \
+    [tmp][blur2]overlay=400:300" \
+    output.mp4
+
+    before blur, display and determine the rectangle at first
+    ffplay -i clip.mp4 -vf "drawbox=x=1740:y=760:w=250:h=50:color=red"
     ```
 
 ## python
