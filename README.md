@@ -252,7 +252,7 @@ endif
   
 8. crop a video with x,y,w,h
    ```
-   ffmpeg -i in.mp4 -c:v libx264 "crop=out_w:out_h:x:y" out.mp4
+   ffmpeg -i in.mp4 -c:v libx264 -vf "crop=out_w:out_h:x:y" out.mp4
    ```
 
 9. cut up video by start time and duration (-t) or end time (-to)
