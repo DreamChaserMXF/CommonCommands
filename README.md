@@ -399,6 +399,11 @@ endif
     ffplay -i clip.mp4 -vf "drawbox=x=1740:y=760:w=250:h=50:color=red"
     ```
 
+24. mp4 to webp
+      ```
+      ffmpeg -i input.mp4 -r 12 -quality 85 -loop 0 output.webp
+      ```
+
 ## python
 1. command shell
     ```
