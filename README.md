@@ -395,7 +395,13 @@ endif
     [tmp][blur2]overlay=400:300" \
     output.mp4
 
-    before blur, display and determine the rectangle at first
+    # 坐标系，左上角为原点
+    # overlay 用于将两个流叠加，参数是第二个流相对第一个流的位置
+    # 不需要区分多个 area 时，可以直接用 [0:v] 表示原始视频流，如
+
+    ffmpeg -i input.mp4 -filter_complex "[0:v]crop=250:50:1005:10,boxblur=12[blur1];[0:v][blur1]overlay=1005:10" output.mp4
+    
+    # 模糊前，先用 ffplay 画框，确认坐标位置 before blur, display and determine the rectangle at first
     ffplay -i clip.mp4 -vf "drawbox=x=1740:y=760:w=250:h=50:color=red"
     ```
 
