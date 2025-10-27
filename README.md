@@ -409,6 +409,10 @@ endif
 24. mp4 to webp
       ```
       ffmpeg -i input.mp4 -r 12 -quality 85 -loop 0 output.webp
+      -r 帧率
+      -quality 或 -q:v 画质，0～100，越高画质越好
+      -loop 循环次数，0 为无限循环，-1 为不循环
+      -s <720x1280> 宽x高
       ```
 
 ## python
