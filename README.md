@@ -581,3 +581,7 @@ endif
     ```
     adb shell getenforce  # Enforcing, Permissive，前者强制打开 SELinux 检查，后者仅记录违规行为不会禁止
     ```
+3. screen capture 截图
+   ```
+   adb exec-out screencap -p > screen.png  # https://stackoverflow.com/a/37191719
+   ```
