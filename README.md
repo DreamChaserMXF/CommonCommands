@@ -585,3 +585,11 @@ endif
    ```
    adb exec-out screencap -p > screen.png  # https://stackoverflow.com/a/37191719
    ```
+4. wifi 配对
+   ```
+   1. 手机->开发者模式->无线调试->启用，使用配对码配对设备
+   2. 电脑共分两部，先配对，再连接
+     配对：adb pair ip:port  配对时需要在电脑上输入配对码
+     连接：adb connect ip:port
+   参考：[https://developer.android.com/tools/adb?hl=zh-cn](https://developer.android.com/tools/adb?hl=zh-cn#wireless-android11-command-line)
+   ```
