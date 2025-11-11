@@ -244,10 +244,10 @@ endif
 
 7. rescale mp4
     ```
-    ffmpeg -i origin.mp4 -vf scale=640:480 output.mp4
-    ffmpeg -i origin.mp4 -vf scale=iw*.5:ih*.5 output.mp4
-    ffmpeg -i origin.mp4 -vf scale=iw*.5:ih*.5:flags=bicubic output.mp4  # bicubic scaling
-    ffmpeg -s:v 360:640 origin.yuv -vf scale=180:320 out.yuv
+    ffmpeg -i origin.mp4 -vf "scale=640:480" output.mp4
+    ffmpeg -i origin.mp4 -vf "scale=iw*.5:ih*.5" output.mp4
+    ffmpeg -i origin.mp4 -vf "scale=iw*.5:ih*.5:flags=bicubic" output.mp4  # bicubic scaling
+    ffmpeg -s:v 360:640 origin.yuv -vf "scale=180:320" out.yuv
     ```
   
 8. crop a video with x,y,w,h
