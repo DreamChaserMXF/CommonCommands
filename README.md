@@ -15,6 +15,8 @@ syntax on
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+# ctrl + v 替换为 ctrl + b，避免部分机器 ctrl + v 可用来粘贴。
+nnoremap <C-b> <C-v>
 ```
 4. Vim 把 tab 转为空格：retab
 5. Vim as HexEditor:
