@@ -573,6 +573,35 @@ nnoremap <C-b> <C-v>
     git clean -dfx
     git submodule foreach git clean -dxf  # for submodules
     ```
+
+## git work tree
+
+```
+# 查看所有 worktree
+git worktree list
+
+# 基于已有分支创建 worktree
+git worktree add ../repo-feature feature/a
+
+# 创建新分支并创建 worktree
+git worktree add -b feature/b ../repo-feature-b main
+
+# 创建 detached worktree
+git worktree add --detach ../repo-test abc1234
+
+# 删除 worktree
+git worktree remove ../repo-feature
+
+# 强制删除
+git worktree remove --force ../repo-feature
+
+# 清理已经不存在的 worktree 记录
+git worktree prune
+
+# 修复 worktree 路径变化后的记录
+git worktree repair
+```
+
 ## adb
 
 1. list installed package
