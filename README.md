@@ -15,6 +15,19 @@ syntax on
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+# 256 真彩色
+set t_Co=256
+
+# vim 主题(以下选一个即可)
+colorscheme desert
+colorscheme keohler
+colorscheme sorbet
+colorscheme torte
+colorscheme zaibatsu
+colorscheme zaibatsu
+colorscheme zaibatsu
+
 # ctrl + v 替换为 ctrl + b，避免部分机器 ctrl + v 可用来粘贴。
 nnoremap <C-b> <C-v>
 ```
