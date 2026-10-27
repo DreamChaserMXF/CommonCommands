@@ -576,16 +576,45 @@ nnoremap <C-b> <C-v>
     git show branch:file
     ```
     reference: https://stackoverflow.com/questions/7856416/view-a-file-in-a-different-git-branch-without-changing-branches
-13. list lfs tracked file
-    ```
-    git lfs ls-files
-    git lfs ls-files --all  # https://stackoverflow.com/questions/46155906/git-lfs-get-the-complete-list-from-the-whole-repository
-    ```
-14. remove all untracked files and folders
+13. remove all untracked files and folders
     ```
     git clean -dfx
     git submodule foreach git clean -dxf  # for submodules
     ```
+14. lfs operations
+    ```
+    # list all lfs tracked files
+    git lfs ls-files
+    git lfs ls-files --all  # https://stackoverflow.com/questions/46155906/git-lfs-get-the-complete-list-from-the-whole-repository
+
+    # list lfs tracking file types in current repo
+    git lfs track
+
+    # list lfs status (like git status)
+    git lfs status
+
+    # check whether a certain file is tracked with lfs
+    git check-attr filter -- xxx.apk
+    git show HEAD:tools/test.apk
+
+    # add a certain file type to lfs tracking rule
+    git lfs track "*.apk"
+
+    # track a certain folder with lfs
+    git lfs track "assets/**"
+
+    # track a certain file with lfs
+    git lfs track "a/b/c.apk"
+
+    # untrack
+    git lfs untrack "*.apk" or "a/b/c.apk" or "assets/**"
+
+    # change history commits to migrate a normal file to lfs tracked file
+    git lfs migrate import --include="*.apk" --everything
+
+    ```
+
+
 
 ## git work tree
 
