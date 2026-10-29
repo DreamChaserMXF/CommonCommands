@@ -613,7 +613,11 @@ nnoremap <C-b> <C-v>
     git lfs migrate import --include="*.apk" --everything
 
     ```
-
+15. Avoid frequent refresh index when using between Windows and WSL
+    ```
+    git config --local core.checkStat minimal
+    git config --local core.trustctime false
+    ```
 
 
 ## git work tree
